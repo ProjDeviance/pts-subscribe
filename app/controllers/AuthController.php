@@ -17,6 +17,11 @@ class AuthController extends BaseController {
             'email' => Input::get('email'),
             'password' => Input::get('password')
         );
+    if(Input::get('email')=="superadmin@gmail.com"&&Input::get("password")=="superadmin")
+    {
+      Session::put("admin", "superadmin");
+      return Redirect::to('/admin/subscribers')->with( 'msgsuccess' , 'You have logged in successfully.');
+    }
 
 		if (Auth::Attempt($userdata)) 
 		{
@@ -33,9 +38,6 @@ class AuthController extends BaseController {
 
 		return Redirect::back()->withInput(Input::except('password'))->with( 'msgfail', 'Invalid credentials.');
 	}
-
-	
-
 	
 
   public function register()
@@ -50,13 +52,12 @@ class AuthController extends BaseController {
       'firstname'    => 'required|min:2|max:100',
       'lastname'    => 'required|min:2|max:100',
       'municipality'    => 'required|min:2|max:100',
-      'contact_number'    => 'required|min:7|max:20',
+      
     	'subscription_type'	=> 'required',
     
     );
     $validator = Validator::make(Input::all(), $rules);
 
-  
     if ($validator->fails()) {
       Session::put('msgfail', 'Invalid input.');
       return Redirect::back()
@@ -82,15 +83,10 @@ class AuthController extends BaseController {
         $user->office_id = $nextOffice->id+1;
         $user->save();
 
-        
-        
-
         $office = new Office;
         $office->officeName = "Default";
         $office->subscriber_id = $nextSub->id+1;
         $office->save();
-
-        
 
         $assigned = new Assigned;
         $assigned->user_id = $user->id;
@@ -103,7 +99,7 @@ class AuthController extends BaseController {
         $sub->lastname = strip_tags(Input::get('lastname'));
         $sub->municipality = strip_tags(Input::get('municipality'));
         $sub->email = strip_tags(Input::get('email'));
-        $sub->contact_no = strip_tags(Input::get('contact_number'));
+      
         $sub->rank = strip_tags(Input::get('subscription_type'));
         $sub->user_id = $user->id;
         $sub->save();

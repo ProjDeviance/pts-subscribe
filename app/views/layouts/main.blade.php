@@ -52,7 +52,7 @@
 
                   
 
-                  @if(Auth::check())
+                  @if(Auth::check()||Session::get("admin"))
                   <li><a class="logout" href="/logout">Logout</a></li>
                   @else
                   <li><a class="logout" href="/login">Login</a></li>
@@ -91,12 +91,12 @@
                       </a>
                    
                   </li>
-                @if(Auth::check())
+                @if(Auth::check()||Session::get("admin"))
                   
                  
-                 @if(Auth::user()->user_type==2)
+                 @if(Session::get("admin"))
                   <li class="sub-menu">
-                      <a href="/admin/subscriber"  @if(Session::get('management')==1) {{Session::forget('management')}} class= "active" @endif >
+                      <a href="/admin/subscribers"  @if(Session::get('management')==1) {{Session::forget('management')}} class= "active" @endif >
                           <i class="fa fa-tasks"></i>
                           <span>Subscribers Management</span>
                       </a>

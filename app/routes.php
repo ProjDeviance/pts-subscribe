@@ -64,39 +64,21 @@ Route::group(['prefix' => 'admin'],  function()
 {
 
 
-Route::get('/staffs/add', function()
+Route::get('/subscribers', function()
 {
-    if(!Auth::check())
-    	return Redirect::to("/login");
-	else
-	{
+    
 		Session::put('management', 1);
-	
-		return View::make('admin.new_staffs');
-	}
-})->before('admin');
-Route::post('/staffs/add', array('uses' => 'StaffController@newStaff'))->before('admin');
-Route::get('/staffs', function()
-{
-    if(!Auth::check())
-    	return Redirect::to("/login");
-	else
-	{
-		Session::put('management', 1);
-		$staffs = DB::table('users')->where('user_type', 1)
+		$subscribers = DB::table('subscribers')
 	            ->paginate(10);
 	
-		return View::make('admin.staffs')->with('staffs', $staffs);
-	}
+		return View::make('admin.subscribers')->with('subscribers', $subscribers);
+	
 })->before('admin');
-Route::get('/staffs/edit/{id}', function($id)
+Route::get('/subscribers/edit/{id}', function($id)
 {
-    if(!Auth::check())
-    	return Redirect::to("/login");
-	else
-	{
+   
 		Session::put('management', 1);
-		 $exist = User::where('id', $id)->count();
+		 $exist = Subscriber::where('id', $id)->count();
 
     	if($exist == 0)
     	{
@@ -105,13 +87,13 @@ Route::get('/staffs/edit/{id}', function($id)
         ->withInput(); 
     	}
 
-		$staff = User::find($id);
-		return View::make('admin.edit_staffs')->with('staff', $staff);
-	}
+		$subscriber = Subscriber::find($id);
+		return View::make('admin.edit_subscribers')->with('subscriber', $subscriber);
+	
 })->before('admin');
-Route::post('/staffs/edit/{id}', array('uses' => 'StaffController@edit'))->before('admin');
-Route::get('/staffs/activate/{id}', array('uses' => 'StaffController@activate'))->before('admin');
-Route::get('/staffs/deactivate/{id}', array('uses' => 'StaffController@deactivate'))->before('admin');
+Route::post('/subscribers/edit/{id}', array('uses' => 'SubscriberController@edit'))->before('admin');
+Route::get('/subscribers/activate/{id}', array('uses' => 'SubscriberController@activate'))->before('admin');
+Route::get('/subscribers/deactivate/{id}', array('uses' => 'SubscriberController@deactivate'))->before('admin');
 
 
 });
