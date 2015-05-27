@@ -33,7 +33,20 @@ Online Procurement Tracking System
                         
                           <br>
 
-                        <p>  The Iron Bank Online Portal is the premiere system that facilitates the management of your bank account. It provides you access to your account in the comforts of your own home, it allows fast processing of your transactions in both online and onsite and it keeps your banking data secure. This is all because we want to be serve you. Here in the Iron Bank, we make the best happen and we find ways.
+                        <p>  The Online Procurement Tracking System facilitates the procurement processes for the municipal level of government in the Philippines. It contain the following features:
+                        
+                        (Basic)
+                        -Users Management
+                        -Office Management
+                        -Designation Management
+                        -Workflow Management
+                        -Purchase Request Management
+                        -Tasks Flow Module
+                        -Purchase Request Search 
+
+                        (Premium)
+                        -Report Generator Module 
+                        -Document Attachment Support
                         </p>
      
                         </div>
@@ -47,7 +60,7 @@ Online Procurement Tracking System
    <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading" align='center'>
-                    Accounts Offered
+                    Plans Offered
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -55,17 +68,17 @@ Online Procurement Tracking System
                        
                           <br>
 
-                        <p>  We offer savings and time deposit account services. To register follow the following steps:
+                        <p>  We offer basic and premium plans. To register follow the following steps:
                           <br>
                           1. Register online - <a href="/register">click here</a>
                           <br>
-                          2. Go to our nearest branch and bring two government issued IDs.
+                          2. Deposit to account no 93183191414 the amount specified.
                           <br>
-                          3. Retrieve you ATM card from our branch by depositing the initial deposit.
+                          3. Email us at pts@gmail.com the reference code of your deposit transaction.
                           <br>
-                          4. Go to an ATM machine and change you pincode.
+                          4. Await our confirmation.
                           <br>
-                          5. Enjoy using our services.
+                          5. Login to the PTS using your registered credentials.
                         </p>
      
                         </div>
