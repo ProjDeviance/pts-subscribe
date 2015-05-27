@@ -49,12 +49,7 @@
         </div>
 
 
-                    <label class="checkbox">
-                        <span class="pull-right">
-                            <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
-        
-                        </span>
-                    </label>
+                   
                     <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> LOGIN</button>
                     <hr>
                     

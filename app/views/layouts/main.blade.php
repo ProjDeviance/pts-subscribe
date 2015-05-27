@@ -55,7 +55,7 @@
                   @if(Auth::check()||Session::get("admin"))
                   <li><a class="logout" href="/logout">Logout</a></li>
                   @else
-                  <li><a class="logout" href="/login">Login</a></li>
+                 
                   @endif
 
                   
